@@ -5,9 +5,8 @@
 
 
 <link rel="stylesheet" type="text/css" href="navigationstyle.css"/>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <script src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 
 <body dir="rlt" >    
@@ -17,7 +16,7 @@
                             <div class="panel panel-success">
                              <div class="panel-heading"><h3>Créer une compétition</h3></div>
                              <div class="well panel-body">
-                            <form method="POST" action="create.php">
+                            <form enctype="multipart/form-data" method="POST" action="create.php">
                             
                                <div class="row col-md-pull-1 col-md-offset-1">
                                   <div class="col-md-5">
@@ -56,20 +55,19 @@
                                 <div class="row col-md-pull-1 col-md-offset-1">
                                   <div class="col-md-5">
                                     <label for="sports"><h3>Types:</h3></label>
-                                    <select   class="form-control" name="types" id="sports">
-                                
-                                    <optgroup "> 
+                                    <select   class="form-control" name="type" id="sports">
+                                        <option value="vide" selected>Selectionner le type</option>
                                         <option value="football">le football</option>
                                          <option value="tennis">le handball</option>
                                          <option value="handball">le basketball</option>
                                          <option value="vollybal">la boxe</option>
                                          <option value="basketball">le tennis</option>
-                                    </optgroup><br>
+                                    <br>
                                    </select>
                                   </div> 
                                   <div class="col-md-5">
                                     <label for="sports"><h3>Nombre des equipes max:</h3></label>
-                                      <input type="text"  name="nbmax" id="slogan" placeholder="nombre des equipes maximum" class="form-control">
+                                      <input type="number"  name="nbmax" id="slogan" placeholder="nombre des equipes maximum" class="form-control">
                                     
                                   </div> 
                                    
@@ -83,14 +81,12 @@
                                   <div class="col-md-5">
                                     <label for="premierphase"><h3>Premiere Phase</h3></label>
                                       <select   class="form-control" name="phase" id="sports">
-                                
-                                      <optgroup ">
+                                        <option value="vide">Selectionner ici</option>
                                         <option name="Groupe"value="Groupe">Groupe</option>
                                          <option name="Championnat"value="Championnat">Championnat</option>
                                          <option name="elimination"value="elimination">Tableau a elimination directe</option>
                                          <option name="multichance"value="multichance">Tableau multichance</option>
-                                        
-                                      </optgroup><br>
+                                        <br>
                                       </select>
                                     
                                   </div>
@@ -111,13 +107,16 @@
                                      <label for="premierphase"><h3>Date limite d'inscription</h3></label> 
                                     <input type="date" id="myDate" name="datelimite" value="2018-05-12" class="form-control">
                                   </div>
-                                  <div class="col-md-1"></div>
+                                  <div class="col-md-2">
+                                    <label for="image"><h3>Image :</h3></label>
+                                    <input type="file" name="img" id ="img">
+                                  </div>
+                                  <div class="col-md-1"></div>  
                                   <div class="col-md-2" >
                                     <br><br><br>
                                      <label for="premierphase"></label>                  
                                      <input class="btn btn-success pull-right form-control" type="Submit">
                                   </div>
-                                  <div class="col-md-2"></div>                    
                                 </div> 
                                 <div class="row" ><br></div>  
                         

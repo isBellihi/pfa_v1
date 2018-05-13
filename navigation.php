@@ -22,22 +22,5 @@
 					<div class="photo"><img src="images/table.png"></div>
 					<div class="con3"><button class="bt3">START A COMPETITON</button></div>
 				</div>
-					<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                 <div class="par1">
-                 	 <div id="slider">
-                 	 	<img src="">
-                 	 	<img src="">
-                 	 	<img src="">
-                 	 	<img src="">
-                 	 </div>
-                 	 <div id="paraghraph">
-                     <p>
-                     	Déchargez-vous de toutes les tâches longues et fastidieuses : inscriptions des participants, établissement des tableaux et des poules, saisie des scores, calcul des classements... Le logiciel s'occupe de tout. Vous pourrez enfin vous concentrer sur l'essentiel : le sport.
-                     </p>
-                     </div>	
-                  </div>
-
-                    
-                     
 </body>
 </html>

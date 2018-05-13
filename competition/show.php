@@ -1,3 +1,6 @@
+<?php include "../database/tables.php";
+  $resultat = fromTable("competition",2);
+?>
 <!doctype html>
 <html><head>
 <title></title>
@@ -53,8 +56,8 @@
 
                                 </thead>
                                 <tbody>
-                                        <td><h5>ici date de debut</h5></td>
-                                        <td><h5>ici date de fin</h5></td>
+                                        <td><h5><?= $resultat[0]["dateDebut"]?></h5></td>
+                                        <td><h5><?= $resultat[0]["dateFin"]?></h5></td>
                                 </tbody>
                                 <thead>
                                 <tr>
@@ -64,7 +67,7 @@
                     
                                     </thead>
                                     <tbody>
-                                    <td><h5>ici date limte</h5></td>
+                                    <td><h5><?= $resultat[0]["dateLimite"]?></h5></td>
                     
                                     </tbody>
                             </table>
@@ -86,7 +89,7 @@
             
                 <div >
                     <div class="panel panel-group" style="width : 900px;">
-                      <div class="panel-heading text-center " id="id10"><h4 >ici le titre de competition</h4></div>
+                      <div class="panel-heading text-center " id="id10"><h4 ><?= $resultat[0]["titre"]?></h4></div>
                        <div class="panel-body ">
                        
                     <div style="margin-left: 30px ">
@@ -99,7 +102,8 @@
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 
                             <div class="carousel-inner">
-                               <img src="/pfa/images/balld.jpg" style="padding-left : 13px; width:960px;height:500px;" class="pull-center img-center">
+                              <?php $path = str_replace(",", "\\", $resultat[0]["img"], $resultat[0]["img"]);?>
+                               <img src=<?= "\"" . $path . "\""?> style="padding-left : 13px; width:960px;height:500px;" class="pull-center img-center">
                             </div>
                         </div>
                     </div>
@@ -120,9 +124,9 @@
 
                     <tbody>
                       <tr class="">
-                            <td><div class="col-sm-7 col-xs-6 "><strong>ici le type de sport</strong></div>
+                            <td><div class="col-sm-7 col-xs-6 "><strong><?= $resultat[0]["type"]?></strong></div>
                             </td>
-                            <td><div class="col-sm-7 col-xs-6 "><strong>ici le nombre d'equipe</strong></div></td>
+                            <td><div class="col-sm-7 col-xs-6 "><strong><?= $resultat[0]["nbrMaxEqui"]?></strong></div></td>
                                                                                                             
                         </tr>
                     </tbody>  
@@ -138,9 +142,9 @@
                         
                     <tbody>
                       <tr class="">
-                            <td><div class="col-sm-7 col-xs-6 "><strong>ici les frais d'inscription</strong></div>
+                            <td><div class="col-sm-7 col-xs-6 "><strong> <?= $resultat[0]["frais"]?></strong></div>
                             </td>
-                            <td><div class="col-sm-7 col-xs-6 "><strong>ici le nom de l'etablissement</strong></div>
+                            <td><div class="col-sm-7 col-xs-6 "><strong><?= $resultat[0]["id_etab"]?></strong></div>
                             </td>     
                                                                                                            
                         </tr>
@@ -154,9 +158,9 @@
                     </thead>
                     <tbody>
                         
-                            <td><div class="col-sm-7 col-xs-6 "><strong>ici le genre de phase </strong></div>
+                            <td><div class="col-sm-7 col-xs-6 "><strong><?= $resultat[0]["phase1"]?></strong></div>
                             </td> 
-                            <td><div class="col-sm-7 col-xs-6 "><strong>ici le lieu de competition </strong></div>
+                            <td><div class="col-sm-7 col-xs-6 "><strong><?= $resultat[0]["id_etab"]?></strong></div>
                             </td> 
                     </tbody> 
                     <thead>
@@ -167,9 +171,9 @@
                     </thead>         
                     <tbody>
                             
-                        <td height="200"><div class="col-sm-7 col-xs-6 "><strong>ici la description de competition</strong></div>
+                        <td height="200"><div class="col-sm-7 col-xs-6 "><strong><?= $resultat[0]["details"]?></strong></div>
                         </td>  
-                        <td height="200" ><div class="col-sm-7 col-xs-6 "><strong>ici les regles de competition </strong></div>
+                        <td height="200" ><div class="col-sm-7 col-xs-6 "><strong><?= $resultat[0]["regles"]?> </strong></div>
                             </td>  
                     </tbody>
                     </table>
