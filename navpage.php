@@ -1,7 +1,7 @@
 <nav class="navbar navbar-inverse">
                     <div class="container-fluid">
                       <div class="navbar-header">
-                        <a class="navbar-brand" href="#">SportYou</a>
+                        <a class="navbar-brand" href="http://localhost/pfa_test/navigation.php">SportYou</a>
                       </div>
                       <ul class="nav navbar-nav">
                         <li class="active"><a href="#">ACCUEIL</a></li>
