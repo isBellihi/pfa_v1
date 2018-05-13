@@ -1,0 +1,65 @@
+body,html{
+  margin:0px;color:black;
+  background-color:silver;
+  background: -webkit-linear-gradient(top,white,silver);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position:bottom;
+  background-size: cover;
+}
+#id1{
+	margin-left: -80px;
+}
+#id2{
+	right:30px;
+	position:absolute; 
+	width: 360px;
+	margin-right: -20px;
+	margin-top: 32px;
+	
+	background: -webkit-linear-gradient(top,white,silver );
+	font-family: verdana;
+	color:black;
+	margin-top:-0px;
+}
+#id3{
+	background: rgba(10,10, 10, 0.1);
+
+}
+#id4{
+	width:150px ;
+	height:150px; 
+	float:left;
+	border-radius: 50%;
+	cursor:pointer;
+	border:2px solid gray; 
+	
+	margin-bottom: 20px;
+	margin-left: 80px;
+}
+#id5{
+	font-size: 20px;
+}
+#btnid1{
+	margin-left: 90px; 
+	margin-top: 7px; 
+	width: 150px;
+}
+#id6{
+	margin-left: 10px;font-size: 15px; font-weight: bold;height: 30px;
+}
+#id7{
+	 right:30px;position:absolute; ;width: 360px;margin-right: -20px; margin-top: 600px;
+}
+#id8{
+	background: rgba(10,10, 10, 0.3);
+}
+#idbtn2{
+	margin-left: 50px; margin-top: 7px; width: 250px;
+}
+#id9{
+	margin-left: 10px;font-size: 15px; font-weight: bold;height: 30px;
+}
+#id10{
+	width : 900px;background-color:aqua;
+}
