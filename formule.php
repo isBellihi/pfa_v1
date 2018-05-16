@@ -32,12 +32,12 @@
 
                                 <div class="row col-md-pull-1 col-md-offset-1">
                                     <div class="col-md-5">
-                                      <label for="lieu"><h3>Lieu:</h3></label>
-                                      <input type="text" name="lieu" class="form-control" id="lieu" placeholder="lieu de la competition">
+                                      <label for="lieu"><h3>Université :</h3></label>
+                                      <input type="text" name="lieu" class="form-control" id="lieu" placeholder="université">
                                     </div>
                                     <div class="col-md-5">
                                       <label><h3>Etablissement:</h3></label>
-                                      <input type="text" name="etablissement" class="form-control"  placeholder="l'etablissement de la competiton">
+                                      <input type="text" name="etablissement" class="form-control"  placeholder="l'etablissement organizatrice">
                                       
                                     </div>
                                 </div>    

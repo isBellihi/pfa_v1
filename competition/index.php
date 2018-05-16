@@ -47,12 +47,20 @@
 					<td><?php echo $comp["dateFin"]; ?></td>
 					<td><?php echo $comp["dateLimite"]; ?></td>
 					<td><?php echo $comp["frais"] . " MAD" ; ?></td>
-					<td><a href="">Clicker ici pour plus des details</a></td>
+					<td><a href=<?php echo "\"http://localhost/pfa_test/competition/show.php?id=". $comp["id"] . "\""; ?>>Clicker ici pour plus des details</a></td>
+
 					<td>
-						<form action="delete.php" method="post">
+						<form action="edit.php" method="post">
+							<input type="hidden" name="id" value=<?= "\"" . $comp["id"] . "\"" ?>">
+							<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-edit" ></span></button>
+          	</form>		
+					</td>					
+					<td>
+						<form action="delete.php" method="post" 
+						onSubmit="if(!confirm('Voulez vous supprimer cette competition ?')){return false;}">
 							<input type="hidden" name="id" value=<?= "\"" . $comp["id"] . "\"" ?>">
 							<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash" ></span></button>
-          	</form>		
+          	</form>
 					</td>
 				</tr>
 				<?php } ?>

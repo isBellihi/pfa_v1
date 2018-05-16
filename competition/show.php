@@ -1,5 +1,5 @@
 <?php include "../database/tables.php";
-  $resultat = fromTable("competition",2);
+  $resultat = fromTable("competition",$_GET["id"]);
 ?>
 <!doctype html>
 <html><head>

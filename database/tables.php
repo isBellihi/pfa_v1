@@ -1,16 +1,6 @@
 <?php 
 	function fromTable($table,$id=-1){
-		$servername = "localhost";
-		$username = "root";
-		$password = "";
-		$dbname = "pfa";
-
-		// Create connection
-		$conn = new mysqli($servername, $username, $password, $dbname);
-		// Check connection
-		if ($conn->connect_error) {
-    	die("Connection failed: " . $conn->connect_error);
-		} 
+		include 'connect_mysql.php';
 		$sql ="";
 		if($id==-1){
 			$sql = "select * from " . $table .";";
@@ -25,6 +15,7 @@
         $array[] = $row;
     }
 	}
+	$conn->close();
 	return $array;
 	}
 ?>
