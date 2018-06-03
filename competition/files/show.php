@@ -1,5 +1,6 @@
-<?php include "../database/tables.php";
+<?php include "../../database/tables.php";
   $resultat = fromTable("competition",$_GET["id"]);
+  $_type = fromTable("type",$resultat[0]['id_type']);
 ?>
 <!doctype html>
 <html><head>
@@ -13,13 +14,9 @@
 <body>
     <?php
 
-        include(__DIR__ . "\\..\\navpage.php");?>
+        include("../../navpage.php");?>
   <div class="container " >
   <div class="row " id="id1" >
-  
-       <h1>Information d'une tel competition</h1>
-    
-           
              <!-- le panneau de l'admine avec ses information-->
               <div class="panel panel-group "  id="id2"data-spy="affix" >
                     <h2>Admin Informations</h2>
@@ -124,7 +121,7 @@
 
                     <tbody>
                       <tr class="">
-                            <td><div class="col-sm-7 col-xs-6 "><strong><?= $resultat[0]["type"]?></strong></div>
+                            <td><div class="col-sm-7 col-xs-6 "><strong><?= $_type[0]["nom"]?></strong></div>
                             </td>
                             <td><div class="col-sm-7 col-xs-6 "><strong><?= $resultat[0]["nbrMaxEqui"]?></strong></div></td>
                                                                                                             
@@ -144,7 +141,7 @@
                       <tr class="">
                             <td><div class="col-sm-7 col-xs-6 "><strong> <?= $resultat[0]["frais"]?></strong></div>
                             </td>
-                            <td><div class="col-sm-7 col-xs-6 "><strong><?= $resultat[0]["id_etab"]?></strong></div>
+                            <td><div class="col-sm-7 col-xs-6 "><strong><?= $resultat[0]["id_etablissement"]?></strong></div>
                             </td>     
                                                                                                            
                         </tr>
@@ -160,7 +157,7 @@
                         
                             <td><div class="col-sm-7 col-xs-6 "><strong><?= $resultat[0]["phase1"]?></strong></div>
                             </td> 
-                            <td><div class="col-sm-7 col-xs-6 "><strong><?= $resultat[0]["id_etab"]?></strong></div>
+                            <td><div class="col-sm-7 col-xs-6 "><strong><?= $resultat[0]["id_etablissement"]?></strong></div>
                             </td> 
                     </tbody> 
                     <thead>

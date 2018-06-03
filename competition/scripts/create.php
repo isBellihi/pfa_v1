@@ -1,7 +1,7 @@
 <?php
 //var_dump($_POST);
 //exit();
-include 'database/connect_mysql.php';
+include '../../database/connect_mysql.php';
 
 /*
 CREATE or replace TABLE Competition(
@@ -28,7 +28,7 @@ CREATE or replace TABLE Competition(
     if(file_exists($_FILES['img']['tmp_name']) && is_uploaded_file($_FILES['img']['tmp_name'])) {
                 move_uploaded_file($_FILES["img"]["tmp_name"], __DIR__ . $path);
             }        
-				$path = "\\pfa_test" . $path;
+				$path = "\\events_app" . $path;
 				$path = str_replace("\\", ",", $path, $path);
 
         $sql = 'INSERT INTO competition(titre,slogon,details,regles,frais,type,phase1';
@@ -41,10 +41,6 @@ if ($conn->query($sql) === FALSE) {
 	echo "Error: " . $sql . "<br>" . $conn->error;
 }
 $conn->close();
-header("Location: http://localhost/pfa_test/?p=competitions");
-
-
-/*$path = str_replace(",", "\\", $path, $path);
-echo "<img src = \"" . $path ."\" width = \"100px\" />";*/
+header("Location: /events_app/?p=competitions");
 
 ?>

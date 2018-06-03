@@ -1,17 +1,22 @@
-<?php include "../database/tables.php";
+<?php include "../../database/tables.php";
+if(isset($_POST["etablissement"])){
+	$creteres = $_POST;
+	$resultat = search("competition", $creteres);
+}else{
 	$resultat = fromTable("competition");
+}
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="/pfa_test/navigationstyle.css"/>
-  <link rel="stylesheet" href="/pfa_test/bootstrap/css/bootstrap.min.css">
-    <script src="/pfa_test/bootstrap/js/jquery.min.js"></script>
-  <script src="/pfa_test/bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/events_app/navigationstyle.css"/>
+  <link rel="stylesheet" href="/events_app/bootstrap/css/bootstrap.min.css">
+    <script src="/events_app/bootstrap/js/jquery.min.js"></script>
+  <script src="/events_app/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-	    <?php include("../navpage.php");?>   
+	    <?php include("../../navpage.php");?>   
 	    <div class="container " style="margin-top: 100px;">
 	<div class="row">
 		<div class="col-md-12">
@@ -21,7 +26,7 @@
   		<div class="col-md-6"><h4>Tous les compétitions</h4></div>
   		<div class="col-md-3"></div>
   		<div class="col-md-3">
-  			<a class="btn btn-success" href="http://localhost/pfa_test/?p=create/competition">
+  			<a class="btn btn-success" href="create.php">
   				Ajouter une Competition<span class="glyphicon glyphicon-plus" style="padding-left: 10px"></span>
   			</a>
   		</div>
@@ -47,16 +52,16 @@
 					<td><?php echo $comp["dateFin"]; ?></td>
 					<td><?php echo $comp["dateLimite"]; ?></td>
 					<td><?php echo $comp["frais"] . " MAD" ; ?></td>
-					<td><a href=<?php echo "\"http://localhost/pfa_test/competition/show.php?id=". $comp["id"] . "\""; ?>>Clicker ici pour plus des details</a></td>
+					<td><a href=<?php echo "\"/events_app/competition/files/show.php?id=". $comp["id"] . "\""; ?>>Clicker ici pour plus des details</a></td>
 
 					<td>
-						<form action="edit.php" method="post">
+						<form action="/events_app/competition/files/edit.php" method="post">
 							<input type="hidden" name="id" value=<?= "\"" . $comp["id"] . "\"" ?>">
 							<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-edit" ></span></button>
           	</form>		
 					</td>					
 					<td>
-						<form action="delete.php" method="post" 
+						<form action="/events_app/competition/scripts/delete.php" method="post" 
 						onSubmit="if(!confirm('Voulez vous supprimer cette competition ?')){return false;}">
 							<input type="hidden" name="id" value=<?= "\"" . $comp["id"] . "\"" ?>">
 							<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash" ></span></button>

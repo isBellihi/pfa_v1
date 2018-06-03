@@ -1,5 +1,5 @@
 <?php
-require '../database/connect_mysql.php';
+include '../../database/connect_mysql.php';
 /*
 CREATE or replace TABLE Competition(
         id_comp    int (11) Auto_increment  NOT NULL ,
@@ -20,19 +20,19 @@ CREATE or replace TABLE Competition(
         PRIMARY KEY (id_comp )
 )ENGINE=InnoDB;
  */
-        $target_dir = "\\..\\images\\uploads\\photos\\";
+        $target_dir = "\\..\\..\\images\\uploads\\photos\\";
         $path = $target_dir . $_FILES["img"]["name"] ;
     if(file_exists($_FILES['img']['tmp_name']) && is_uploaded_file($_FILES['img']['tmp_name'])) {
                 move_uploaded_file($_FILES["img"]["tmp_name"], __DIR__ . $path);
             }
-        $path = "\\pfa_test\\images\\uploads\\photos\\";                            
+        $path = "\\events_app\\images\\uploads\\photos\\" . $_FILES["img"]["name"] ;;                            
 		$path = str_replace("\\", ",", $path, $path);
         $sql = 'update competition set titre = \'' . $_POST['titre'] ;
         $sql .= '\' , slogon = \'' . $_POST['slogon']  ;
         $sql .= '\' , details = \'' . $_POST['description']  ;
         $sql .= '\' , regles = \'' . $_POST['regles']  ;
         $sql .= '\' , frais = ' . $_POST['frais']  ;
-        $sql .= ' , type = \'' . $_POST['type']  ;
+        $sql .= ' , id_type = \'' . $_POST['type']  ;
         $sql .= '\' , phase1 = \'' . $_POST['phase']  ;
         $sql .= '\' , nbrMaxEqui = ' . $_POST['nbmax']  ;
         $sql .= ' , dateDebut = \'' . $_POST['datedebut']  ;
@@ -48,10 +48,11 @@ CREATE or replace TABLE Competition(
         $sql .= 'where id = '*/
 
 if ($conn->query($sql) === FALSE) {
+    echo $conn->error;
 	echo "Error: " . $sql . "<br>" . $conn->error;
 }
 $conn->close();
-header("Location: http://localhost/pfa_test/?p=competitions");
+header("Location: /events_app/?p=competitions");
 
 
 /*$path = str_replace(",", "\\", $path, $path);
