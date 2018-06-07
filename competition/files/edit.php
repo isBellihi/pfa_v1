@@ -13,6 +13,7 @@ $type = fromTable("type",$comp[0]['id_type']);
  <link rel="stylesheet" href="/events_app/bootstrap/css/bootstrap.min.css">
  <script src="/events_app/bootstrap/js/jquery.min.js"></script>
  <script src="/events_app/bootstrap/js/bootstrap.min.js"></script>
+ <script src="/events_app/bootstrap/js/validate.jquery.js"></script>
 </head>
 
 <body dir="rlt" >    
@@ -22,18 +23,18 @@ $type = fromTable("type",$comp[0]['id_type']);
    <div class="panel panel-success">
     <div class="panel-heading"><h3>Créer une compétition</h3></div>
     <div class="well panel-body">
-     <form enctype="multipart/form-data" method="POST" action="/events_app/competition/scripts/update.php">
+     <form enctype="multipart/form-data" method="POST" action="/events_app/competition/scripts/update.php" id="form-register">
 
       <div class="row col-md-pull-1 col-md-offset-1">
        <div class="col-md-5">
         <label for="nom"><h3>Titre:</h3></label>
         <input type="text" name="titre" id="nom" class="form-control" placeholder="Le Nom De  competition *" 
-        value=<?php echo "\"" . $comp[0]["titre"] . "\""; ?> >
+        value=<?php echo "\"" . $comp[0]["titre"] . "\""; ?> required="required">
        </div>
        <div class="col-md-5">
         <label for="slogan"><h3>Slogan</h3></label>
         <input type="text" name="slogon"  id="slogan" placeholder="le slogan de competition" class="form-control"
-        value=<?php echo "\"" . $comp[0]["slogon"] . "\""; ?>>
+        value=<?php echo "\"" . $comp[0]["slogon"] . "\""; ?> required="required">
        </div>
 
       </div>
@@ -57,6 +58,41 @@ $type = fromTable("type",$comp[0]['id_type']);
         });
        });
       </script> 
+      <script type="text/javascript">
+       $(document).ready(function(){
+        $.validator.addMethod("valueNotEquals", function(value, element, arg){
+    // I use element.value instead value here, value parameter was always null
+    return arg != element.value; 
+   }, "Value must not equal arg.");
+        $("#form-register").validate({
+         rules: {
+          universite: {
+           required: true
+          },
+
+          etablissement: {
+           required: true,
+           valueNotEquals: '-1'
+          }
+
+         },
+         messages: {
+          password: {
+           required: "Inserer le mot de passe",
+           minlength: "Le password doit contenir au moins 8 caracteres"
+          },
+          confirmpassword: {
+           equalTo: "Confirmer le mot de passe"
+          },
+          etablissement: {
+           valueNotEquals: "Selectionner l'etablissement",
+           required: "Selectionner l'etablissement"
+          }
+         }
+
+        });
+       });
+      </script>
       <div class="row col-md-pull-1 col-md-offset-1">
        <div class="col-md-5">
         <label for="lieu"><h3>Université :</h3></label>
@@ -70,7 +106,7 @@ $type = fromTable("type",$comp[0]['id_type']);
          </option>
         <?php } ?>
         <script type="text/javascript">
-         
+
         </script>
        </select>
       </div>
@@ -83,7 +119,7 @@ $type = fromTable("type",$comp[0]['id_type']);
      <div class="row col-md-pull-1 col-md-offset-1">
       <div class="col-md-5">
        <label><h3>Description:</h3></label>
-       <textarea rows="7" name="description"class="form-control" placeholder="Description de la competition">
+       <textarea rows="7" name="description"class="form-control" placeholder="Description de la competition" required="required">
         <?= $comp[0]["details"] ?>
        </textarea>                  
       </div>
@@ -114,14 +150,14 @@ $type = fromTable("type",$comp[0]['id_type']);
      <div class="col-md-5">
       <label for="sports"><h3>Nombre des equipes max:</h3></label>
       <input type="number"  name="nbmax" id="slogan" placeholder="nombre des equipes maximum" class="form-control"
-      value=<?= "\"" . $comp[0]["nbrMaxEqui"] . "\"" ?>>
+      value=<?= "\"" . $comp[0]["nbrMaxEqui"] . "\"" ?> required="required">
      </div> 
     </div> 
     <div class="row col-md-pull-1 col-md-offset-1">
      <div class="col-md-5">
       <label for="sports"><h3>Frais d'inscription:</h3></label>
       <input type="number" name="frais"  id="slogan" placeholder="frais de la competition" class="form-control"
-      value=<?php echo "\"" . $comp[0]["frais"] . "\""; ?>>
+      value=<?php echo "\"" . $comp[0]["frais"] . "\""; ?> required="required">
 
      </div>
      <div class="col-md-5">
@@ -153,12 +189,12 @@ $type = fromTable("type",$comp[0]['id_type']);
      <div class="col-md-5">
       <label for="premierphase"><h3>Date de Debut</h3></label> 
       <input type="date" id="myDate" name="datedebut" value="2018-05-12" class="form-control"
-      value=<?php echo "\"" . $comp[0]["dateDebut"] . "\""; ?>>
+      value=<?php echo "\"" . $comp[0]["dateDebut"] . "\""; ?> required="required">
      </div>
      <div class="col-md-5">
       <label for="premierphase"><h3>Date de Fin</h3></label> 
       <input type="date" id="myDate" name="datefin" value="2018-05-12" class="form-control"
-      value=<?php echo "\"" . $comp[0]["dateFin"] . "\""; ?>>
+      value=<?php echo "\"" . $comp[0]["dateFin"] . "\""; ?> required="required">
      </div>
 
     </div> 
@@ -166,14 +202,14 @@ $type = fromTable("type",$comp[0]['id_type']);
      <div class="col-md-5">
       <label for="premierphase"><h3>Date limite d'inscription</h3></label> 
       <input type="date" id="myDate" name="datelimite" value="2018-05-12" class="form-control"
-      value=<?php echo "\"" . $comp[0]["dateLimite"] . "\""; ?>>
+      value=<?php echo "\"" . $comp[0]["dateLimite"] . "\""; ?> required="required">
      </div>
      <div class="col-md-2">
       <label for="image"><h3>Image :</h3></label>
       <input type="file" name="img" id ="img">
      </div>
      <input type="hidden" name="id" value=<?= "\"" . $_POST["id"] . "\"" ?>">
-     <div class="col-md-1"></div>  
+     <div class="col-md-1" required="required"></div>  
      <div class="col-md-2" >
       <br><br><br>
       <label for="premierphase"></label>                  
