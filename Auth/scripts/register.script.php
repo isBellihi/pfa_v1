@@ -1,7 +1,7 @@
 <?php
 //var_dump($_POST);
 include '../../database/connect_mysql.php';
-include "auth.php";
+//include "auth.php";
 include "../../database/tables.php";
 
 $target_dir = "\\..\\..\\images\\profils\\";
@@ -16,14 +16,13 @@ $sql .= ',photo,id_etablissement,poste) VALUES(\'';
 $sql .= $_POST['nom'] . '\',\'' . $_POST['prenom'] . '\',\'' .  $_POST['adresse'] . '\',\'' .  $_POST['email'] . '\',\'' ;
 $sql .= encryptIt($_POST['password']) . '\',\'' . $_POST['tele'] . '\',\'' .  $_POST['dateNaissance'] . '\',\'' .  $path . '\',\'' .  $_POST['etablissement'] . '\',\'';
 $sql .=  $_POST['post'] . '\');' ;
-
 if ($conn->query($sql) === FALSE) {
 	//echo "Error: " . $sql . "<br>" . $conn->error;
  $conn->close();
  if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }
-$_SESSION['success'] = 'email deja exite';
+$_SESSION['success'] = 'Email existe deja';
 header("Location: /events_app/Auth/files/register.php");
 }else{
   session_start();

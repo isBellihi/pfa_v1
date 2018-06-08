@@ -76,8 +76,8 @@
 						<?php $path = str_replace(",", "\\", $comps[$i]["img"], $comps[$i]["img"]);?>
 						<img class="image" style="height: 500px; width: 100%;" src=<?=  "\"".$path."\"" ?>>
 						<div class="carousel-caption">
-							<h3><?=$comps[$i]['titre']?></h3>
-							<p style="color: #B41E1E; font-weight: bold; font-size: 20px">
+							<h2><?=$comps[$i]['titre']?></h3>
+							<p style="color: white; /*font-weight: bold;*/ font-size: 20px">
 								<?=$comps[$i]['details']?></p>
 								<a href=<?= "\"/events_app/competition/files/show.php?id=" .$comps[$i]['id'] . "\""?> style="font-weight: bold; font-size: 20px">Voire les details  <i class="glyphicon glyphicon-eye-open" style="color: blue;"></i></a>
 							</div>

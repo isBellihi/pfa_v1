@@ -175,15 +175,21 @@ $eta = whereAttr("etablissement","id","=",$org[0]['id_etablissement']);
                       <thead>
                         <tr class="success">
                           <th>Description </th>
-                          <th>Regles</th>
+                          
                         </tr>
+                        <tr> 
+                        <td height="200" >
+                          <div class="col-sm-12 col-xs-12 "><?= $resultat[0]["details"]?></div>
+                        </td> </tr> 
+                        
                       </thead>         
                       <tbody>
-
-                        <td height="200"><div class="col-sm-7 col-xs-6 "><strong><?= $resultat[0]["details"]?></strong></div>
-                        </td>  
-                        <td height="200" ><div class="col-sm-7 col-xs-6 "><strong><?= $resultat[0]["regles"]?> </strong></div>
-                        </td>  
+                        <tr class="success">
+                        <th>Regles</th></tr>
+                        <tr>
+                        <td height="200"><div class="col-sm-12 col-xs-12 "><?= $resultat[0]["regles"]?></div>
+                        </td> </tr>
+                        
                       </tbody>
                     </table>
                   </div>

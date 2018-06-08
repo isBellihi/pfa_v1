@@ -1,4 +1,4 @@
-<?php include '../../database/connect_mysql.php'; 
+<?php 
 include '../../database/tables.php'; 
 $comp = fromTable("competition", $_POST["id"]);
 $etablissement = fromTable("etablissement",$comp[0]['id_etablissement']);
@@ -53,7 +53,7 @@ $type = fromTable("type",$comp[0]['id_type']);
            }
           }); 
          }else{
-          $('#etablissement').html('<option value="-2">Selectionner d\'habord l\'universite</option>');
+          $('#etablissement').html('<option value="-2">Selectionner d\'ahbord l\'universite</option>');
          }
         });
        });
@@ -97,6 +97,7 @@ $type = fromTable("type",$comp[0]['id_type']);
        <div class="col-md-5">
         <label for="lieu"><h3>Université :</h3></label>
         <select   class="form-control" name="universite" id="universite">
+          <option value="-2">Selectionner l'universite</option>
          <?php $uns = fromTable("universite"); 
          foreach ($uns as $un) {?>
           <option value=<?= "\"" . $un['id'] . "\"" ?>
@@ -225,4 +226,3 @@ $type = fromTable("type",$comp[0]['id_type']);
 </div>
 </body>
 </html>
-<?php $con->close(); ?>

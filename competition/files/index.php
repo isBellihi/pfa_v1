@@ -25,8 +25,9 @@ if(isset($_POST["etablissement"])){
 	<?php include("../../navpage.php");?>   
 	<div class="container " style="margin-top: 100px;">
 		<?php 
-		session_start();
-		if(isset($_SESSION['success'])){ ?>
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}		if(isset($_SESSION['success'])){ ?>
 			<div class="alert alert-success" role="alert">
 				<?= $_SESSION['success'] ?>
 				<?php unset($_SESSION['success']) ?>

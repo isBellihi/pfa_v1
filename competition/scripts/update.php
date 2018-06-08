@@ -20,6 +20,9 @@ CREATE or replace TABLE Competition(
         PRIMARY KEY (id_comp )
 )ENGINE=InnoDB;
  */
+    $_POST = str_replace('\'', " ", $_POST, $_POST);
+    $_POST = str_replace('"', " ", $_POST, $_POST);
+    $_POST = str_replace('\\', " ", $_POST, $_POST);
         $target_dir = "\\..\\..\\images\\uploads\\photos\\";
         $path = $target_dir . $_FILES["img"]["name"] ;
     if(file_exists($_FILES['img']['tmp_name']) && is_uploaded_file($_FILES['img']['tmp_name'])) {
